@@ -10,12 +10,22 @@ Student::Student(string studName, string studID, double StudGpa)
     this->id = studID;
     this->gpa = StudGpa;
 }
+Student ::Student(Student &student)
+{
+    this->name = student.name;
+    this->id = student.id;
+    this->gpa = student.gpa;
+}
+
+Student::Student()
+{
+}
 
 ostream &operator<<(ostream &out, const Student &st)
 {
-    out << "Name: " << st.name << endl;
-    out << "ID: " << st.id << endl;
-    out << "GPA: " << st.gpa << endl;
+    out << "Name: " << st.getName() << endl;
+    out << "ID: " << st.getID() << endl;
+    out << "GPA: " << st.getGPA() << endl;
     return out;
 }
 

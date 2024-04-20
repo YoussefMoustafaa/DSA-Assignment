@@ -15,6 +15,8 @@ private:
 
 public:
     Student(string studName, string studID, double studGpa);
+    Student();
+    Student(Student &student);
     friend ostream &operator<<(ostream &out, const Student &st);
     bool operator<(const Student &st);
     void setName(string studName);

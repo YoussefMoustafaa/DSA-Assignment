@@ -1,0 +1,21 @@
+Sorting method = Insertion Sort
+
+Number of comparisons = 3
+
+Running Time = 0
+
+[Name: Mohamed
+ID: 97848
+GPA: 2.2
+ ,Name: Sara
+ID: 78697
+GPA: 3.1
+ ,Name: Ali
+ID: 3541
+GPA: 3.5
+ ,Name: Mariam
+ID: 69712
+GPA: 3.7
+]
+compared based on Gpa
+
