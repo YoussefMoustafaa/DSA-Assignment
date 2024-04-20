@@ -19,9 +19,7 @@ public:
     bool operator<(const Student &st);
     void setName(string studName);
     void setID(string studID);
-
     void setGPA(double studGpa);
-
     string getName() const;
     string getID() const;
     double getGPA() const;
