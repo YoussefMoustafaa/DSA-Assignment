@@ -12,7 +12,7 @@ Merge Sort, Quick Sort and Count Sort algorithms.
   templates to allow sorting of different types of data.
 
 5. Sort the array of students’ objects with each of the previous algorithms.
-a. Sort the data one time by Name and another time by GPA.
+  a. Sort the data one time by Name and another time by GPA.
 6. Calculate the running time of each algorithm for each array.
 
 7. The output will be two files, SortedByGPA.txt and SortedByName.txt. Each file
@@ -21,6 +21,7 @@ contains:
   b. Number of comparisons.
   c. Running Time.
   d. Sorted Student Elements.
+
 
 ## 2. Linear Structures:
 Implement the following data structures and demonstrates how to use them in the main
@@ -51,7 +52,7 @@ with the following methods:
   o stackSize () : int
   o clear (): void
   o print () : void
-### • Implement a Queue with the following methods:
+  • Implement a Queue with the following methods:
   o enqueue (elementType element) : void
   o dequeue () : elementType element //return the first element and remove it.
   o first () : elementType element //return the first element without removing it.
