@@ -206,15 +206,15 @@ void SingleLinkedLIst<T> ::swap (int firstItemIdx, int secondItemIdx){
     }else if(secondItemIdx<0 or size<=secondItemIdx){
         throw out_of_range("Second index is out of scope");
     }else{
-        Node<T> *Fpostion=first,*Spostion=first,*temp;
+        Node<T> *Fposition=first,*Sposition=first;
         for(int i =0 ;i<firstItemIdx;i++){
-            Fpostion=Fpostion->next;
+            Fposition=Fposition->next;
         }for(int i =0 ;i<secondItemIdx;i++){
-            Spostion=Spostion->next;
+            Sposition=Sposition->next;
         }
-        temp=Fpostion;
-        Fpostion->data=Spostion->data;
-        Spostion->data=temp->data;
+        T temp = Fposition->data;
+        Fposition->data = Sposition->data;
+        Sposition->data = temp;
 
     }
 }
