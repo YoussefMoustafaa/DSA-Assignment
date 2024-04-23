@@ -14,20 +14,9 @@ private:
     double gpa;
 
 public:
-    Student& operator=(const Student& other) {
-        if (this != &other) {
-            name = other.name;
-            id = other.id;
-            gpa = other.gpa;
-        }
-        return *this;
-    }
-    Student(string studName, string studID, double studGpa);
     Student();
-    Student(Student &student);
-    Student(const Student& other);
+    Student(string studName, string studID, double studGpa);
     friend ostream &operator<<(ostream &out, const Student &st);
-    friend std::istream& operator>>(std::istream& in, Student& st);
     bool operator<(const Student &st);
     void setName(string studName);
     void setID(string studID);
