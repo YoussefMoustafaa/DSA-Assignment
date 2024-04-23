@@ -1,86 +1,109 @@
 #include <iostream>
 #include "Student.cpp"
 #include <bits/stdc++.h>
-#include "SingleLinkedLIst.cpp"
 
-bool studentGPAComparer(Student &S1, Student &S2)
-{
-    return S1.getGPA() < S2.getGPA();
-} bool studentGPAComparerOrEqual(Student &S1, Student &S2)
-{
-    return S1.getGPA() <=S2.getGPA();
-}
 template<typename T>
-int partiton(T Array[], int low , int high , bool compareByName = true){
+int partiton(vector<T>& Array, int low, int high){
     T pivot=Array[low];
     int i=low,j=high;
-    Student temp;
-    if(compareByName){
-        do
-        {
-            do{i++;} while (studentNameComparer(Array[i],pivot));
+    do
+    {
+        do{i++;} while (Array[i]<=pivot);
 
-            do{j--;} while (studentNameComparerOrEqual(pivot,Array[j]));
+        do{j--;} while (pivot<Array[j]);
+        if(i<j){
+            swap(Array[i],Array[j]);
+        }
 
-        } while (i<j);
-        swap(Array[i],Array[j]);
-        return j;
-    }else{
-        do
-        {
-            do{i++;} while (studentGPAComparer(Array[i],pivot));
+    } while (i<j);
+    swap(Array[low],Array[j]);
+    return j;
 
-            do{j--;} while (studentGPAComparerOrEqual(pivot,Array[j]));
-
-        } while (i<j);
-        swap(Array[i],Array[j]);
-        return j;
-    }
 
 }
 template<typename T>
-void QuickSort(T Array[],int low,int high, bool compareByName = true){
+void QuickSort(vector<T>& Array, int low, int high){
     int j;
-    if(compareByName){
-        if(low<high){
-            j= partiton(Array,low,high,compareByName);
-            QuickSort(Array,low,j,compareByName);
-            QuickSort(Array,j++,high,compareByName);
+    if(low<high){
+        j= partiton(Array,low,high);
+        QuickSort(Array,low,j);
+        QuickSort(Array,j+1,high);
+    }
+
+}
+bool compareByGPA(const Student& a, const Student& b) {
+    return a.getGPA() < b.getGPA();
+}
+bool compareByName(const Student& a, const Student& b) {
+    return a.getName() < b.getName();
+}
+
+template<typename Compare>
+int partition(vector<Student>& arr, int low, int high, Compare comp) {
+    Student pivot = arr[high];
+    int i = low - 1;
+
+    for (int j = low; j <= high - 1; j++) {
+        if (comp(arr[j], pivot)) {
+            i++;
+            swap(arr[i], arr[j]);
         }
-    }else{
-        if(low<high){
-            j= partiton(Array,low,high,compareByName);
-            QuickSort(Array,low,j,compareByName);
-            QuickSort(Array,j++,high,compareByName);
-        }
+    }
+    swap(arr[i + 1], arr[high]);
+    return i + 1;
+}
+
+// Quick sort for student class
+template<typename Compare>
+void quickSort(vector<Student>& arr, int low, int high, Compare comp) {
+    if (low < high) {
+        int part = partition(arr, low, high, comp);
+        quickSort(arr, low, part - 1, comp);
+        quickSort(arr, part + 1, high, comp);
     }
 }
 template<typename T>
-void QuickSortStudent(T Array[],int low,int high, bool compareByName = true){
-
-    if(compareByName){
-        QuickSort(Array,low,high,true);
-
-    }else{
-        QuickSort(Array,low,high, false);
+void O(vector<T>& v){
+    ofstream outputFile("C:\\cs\\QuickSort\\output.txt");
+    if (!outputFile.is_open()) {
+        throw ("Failed to open the output file.");
     }
 
+    for (const auto& student : v) {
+        outputFile << "Name: " << student.getName() << endl;
+        outputFile << "ID: " << student.getID() << endl;
+        outputFile << "GPA: " << student.getGPA() << endl << endl;
+    }
+
+    outputFile.close();
+
+    cout << "Data has been successfully written to output.txt" << endl;
 }
+
 int main() {
-    freopen("C:/cs/QuickSort/input.txt","r",stdin);
-    freopen("C:/cs/QuickSort/output.txt","W",stdin);
-    SingleLinkedLIst<int> ls;
-    int array[]={1,2,3,4,5};
-    SingleLinkedLIst<int> list(array,5);
-    list.insertAtHead(0);
-    list.display();
-    list.insertAtTail(6);
-    list.display();
-    list.insertAt(3,0);
-    list.display();
-    list.replaceAt(33,7);
-    list.display();
-    list.swap(3,4);
-    list.display();
+    ifstream file("C:\\cs\\QuickSort\\input.txt");
+    if (!file.is_open()) {
+        cout << "Failed to open the file." << endl;
+        return 1;
+    }
+
+    int size;
+    file >> size;
+    file.ignore();
+    vector<Student> students(size);
+    for (int i = 0; i < size; ++i) {
+        string name, id;
+        double gpa;
+
+        getline(file, name);
+        file >> id >> gpa;
+        file.ignore();
+        students[i]=Student(name, id, gpa);
+    }
+    file.close();
+    quickSort(students,0,3, compareByName);
+    O( students);
+    vector<int> arr ={4,2,8,1,9,10,5,3,6};
+    QuickSort(arr,0,9);
 
 }
