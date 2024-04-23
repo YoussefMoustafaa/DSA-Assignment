@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Student.cpp"
 #include <bits/stdc++.h>
+#include "SingleLinkedLIst.cpp"
 
 bool studentGPAComparer(Student &S1, Student &S2)
 {
@@ -68,5 +69,18 @@ void QuickSortStudent(T Array[],int low,int high, bool compareByName = true){
 int main() {
     freopen("C:/cs/QuickSort/input.txt","r",stdin);
     freopen("C:/cs/QuickSort/output.txt","W",stdin);
+    SingleLinkedLIst<int> ls;
+    int array[]={1,2,3,4,5};
+    SingleLinkedLIst<int> list(array,5);
+    list.insertAtHead(0);
+    list.display();
+    list.insertAtTail(6);
+    list.display();
+    list.insertAt(3,0);
+    list.display();
+    list.replaceAt(33,7);
+    list.display();
+    list.swap(3,4);
+    list.display();
 
 }
