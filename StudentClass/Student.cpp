@@ -1,8 +1,14 @@
 #include <iostream>
 #include "../StudentClass/Student.h"
-#include "Student.h"
+// #include "../Sorting/Sorting.cpp"
 
 using namespace std;
+
+Student::Student() {
+    this->name = "";
+    this->id = "";
+    this->gpa = 0.0;
+}
 
 Student::Student(string studName, string studID, double StudGpa)
 {

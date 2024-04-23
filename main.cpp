@@ -39,12 +39,14 @@ int main()
     cout << "Before Sorting" << endl;
     printVector(v);
     cout << "after sortng by name" << endl;
-    sort(v.begin(), v.end(), studentNameComparer);
+    // sort(v.begin(), v.end(), studentNameComparer);
+    Student arr[] = {student1, student2, s3, s4};
+    insertionSort(arr, v.size());
     printVector(v);
-    cout << "after sortng by Gpa" << endl;
+    // cout << "after sortng by Gpa" << endl;
 
-    sort(v.begin(), v.end(), studentGPAComparer);
-    printVector(v);
+    // sort(v.begin(), v.end(), studentGPAComparer);
+    // printVector(v);
 
     // return 0;
 }
