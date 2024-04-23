@@ -5,48 +5,50 @@
 #include "Queue/Queue.cpp"
 #include <vector>
 using namespace std;
+template<typename T>
+vector<T> in(){
+  ifstream file("C:\\cs\\QuickSort\\input.txt");
+    if (!file.is_open()) {
+        cout << "Failed to open the file." << endl;
+        return 1;
+    }
+
+    int size;
+    file >> size;
+    file.ignore();
+    vector<Student> students(size);
+    for (int i = 0; i < size; ++i) {
+        string name, id;
+        double gpa;
+
+        getline(file, name);
+        file >> id >> gpa;
+        file.ignore();
+        students[i]=Student(name, id, gpa);
+    }
+    file.close();
+  return students;
+}
+template<typename T>
+void O(vector<T>& v){
+    ofstream outputFile("C:\\cs\\QuickSort\\output.txt");
+    if (!outputFile.is_open()) {
+        throw ("Failed to open the output file.");
+    }
+
+    for (const auto& student : v) {
+        outputFile << "Name: " << student.getName() << endl;
+        outputFile << "ID: " << student.getID() << endl;
+        outputFile << "GPA: " << student.getGPA() << endl << endl;
+    }
+
+    outputFile.close();
+
+    cout << "Data has been successfully written to output.txt" << endl;
+}
+
 
 int main()
 {
-    // Queue<int> *q = new Queue<int>();
-    // q->enqueue(1);
-    // q->enqueue(2);
-    // q->enqueue(3);
-    // q->enqueue(4);
-    // q->enqueue(5);
-    // q->enqueue(6);
 
-    // q->print();
-
-    // int num = q->dequeue();
-    // cout << "Dequeued: " << num << endl;
-    // q->print();
-
-    // int num2 = q->first();
-    // cout << "First: " << num2 << endl;
-    // q->print();
-    // cout << q->queueSize() << endl;
-    // q->clear();
-    // q->print();
-    // cout << q->queueSize() << endl;
-
-    Student student1("John", "56789", 3.7);
-    Student student2("Arthur", "12459", 2.9);
-    Student s3("George", "8747", 0.5);
-    Student s4("Zyad", "55555", 4);
-
-    vector<Student> v{student1, student2, s3, s4};
-    cout << "Before Sorting" << endl;
-    printVector(v);
-    cout << "after sortng by name" << endl;
-    // sort(v.begin(), v.end(), studentNameComparer);
-    Student arr[] = {student1, student2, s3, s4};
-    insertionSort(arr, v.size());
-    printVector(v);
-    // cout << "after sortng by Gpa" << endl;
-
-    // sort(v.begin(), v.end(), studentGPAComparer);
-    // printVector(v);
-
-    // return 0;
 }
