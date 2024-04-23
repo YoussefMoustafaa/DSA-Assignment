@@ -12,6 +12,7 @@ private:
     string name;
     string id;
     double gpa;
+
 public:
     Student& operator=(const Student& other) {
         if (this != &other) {
