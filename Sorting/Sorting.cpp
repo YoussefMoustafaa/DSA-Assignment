@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 #include <vector>
 #include "../StudentClass/Student.h"
 using namespace std;
@@ -70,6 +71,75 @@ int insertionSortForStudents(Student arr[], int n, bool compareByName = false)
                 arr[j] = arr[j - 1];
             }
             arr[j] = temp;
+        }
+    }
+    return comparisons;
+}
+
+template <typename T>
+void shellSort(T arr, int size)
+{
+    int gap = size / 2;
+
+    while (gap > 0)
+    {
+        for (int i = gap; i < size; i++)
+        {
+            T temp = arr[i];
+            int j;
+            for (j = i; j >= gap && arr[j - gap] > temp; j -= gap)
+            {
+                arr[j] = arr[j - gap];
+            }
+            arr[j] = temp;
+        }
+        gap /= 2;
+    }
+}
+
+//   for (j = i; j >= gap && arr[j - gap] > temp; j -= gap) {
+//     arr[j] = arr[j - gap];
+// }
+// arr[j] = temp;
+int shellSortForStudent(Student arr[], int size, bool compareByName = false, bool desc = false)
+{
+    int gap = size / 2;
+    int comparisons = 0;
+
+    while (gap > 0)
+    {
+        for (int i = gap; i < size; i++)
+        {
+            Student temp = arr[i];
+            int j;
+            if (compareByName)
+            {
+                for (j = i; j >= gap && studentNameComparer(arr[j - gap], temp); j -= gap)
+                {
+                    arr[j] = arr[j - gap];
+                    comparisons++;
+                }
+                arr[j] = temp;
+            }
+            else
+            {
+                for (j = i; j >= gap && studentGPAComparer(arr[j - gap], temp); j -= gap)
+                {
+                    arr[j] = arr[j - gap];
+                    comparisons++;
+                }
+                arr[j] = temp;
+            }
+        }
+        gap /= 2;
+    }
+    if (!desc)
+    {
+        for (int i = 0; i < size / 2; i++)
+        {
+            Student temp = arr[i];
+            arr[i] = arr[size - 1 - i];
+            arr[size - 1 - i] = temp;
         }
     }
     return comparisons;

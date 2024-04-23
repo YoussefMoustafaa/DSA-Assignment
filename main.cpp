@@ -3,6 +3,7 @@
 #include "./StudentClass/Student.cpp"
 #include "./Sorting/Sorting.cpp"
 #include "Queue/Queue.cpp"
+#include "ArrayBasedQueue/ArrayBasedQueue.cpp"
 
 using namespace std;
 
@@ -24,6 +25,16 @@ void outputValues(string AlgorothimName, string CompareBase, int NumberOfCompari
 
 int main()
 {
+
+    // ArrayBasedQueue<int> q(15);
+    // q.enqueue(10);
+    // q.enqueue(80);
+    // q.enqueue(500);
+    // q.print();
+    // int dqd = q.dequeue();
+    // cout << dqd << endl;
+    // q.print();
+
     IO();
     int noOfStudents;
 
@@ -47,16 +58,16 @@ int main()
     clock_t end = clock();
     double elapsed_secs = double(end - start) / CLOCKS_PER_SEC;
 
-    outputValues("Insertion Sort", "Gpa", comparions, elapsed_secs, students, 4);
+    outputValues("shell Sort", "Gpa", comparions, elapsed_secs, students, 4);
 
-    // cout << "**********************************************************************************************";
-    // cout << "\n\n";
+    cout << "**********************************************************************************************";
+    cout << "\n\n";
 
-    // clock_t start2 = clock();
-    // int comparions2 = insertionSortForStudents(students, 4, true);
-    // clock_t end2 = clock();
-    // double elapsed_secs2 = double(end2 - start2) / CLOCKS_PER_SEC;
-    // outputValues("Insertion Sort", "Name", comparions2, elapsed_secs2, students, 4);
+    clock_t start2 = clock();
+    int comparions2 = shellSortForStudent(students, 4, true);
+    clock_t end2 = clock();
+    double elapsed_secs2 = double(end2 - start2) / CLOCKS_PER_SEC;
+    outputValues("shell Sort", "Name", comparions2, elapsed_secs2, students, 4);
 }
 // Queue<int> *q = new Queue<int>();
 // q->enqueue(1);
