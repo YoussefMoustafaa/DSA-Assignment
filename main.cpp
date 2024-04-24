@@ -30,7 +30,7 @@ void outputValues(string AlgorothimName, string CompareBase, int NumberOfCompari
     cout << "Sorting method = " << AlgorothimName << "\n\n";
 
     cout << "Number of comparisons = " << NumberOfComparisons << "\n\n";
-    cout << "Running Time = " << RunningTime << setprecision(5) << "\n\n";
+    cout << "Running Time = " << setprecision(10) << fixed << RunningTime << "\n\n";
     printArray(SortedStudentElements, SizeOFGivenArray);
     cout << "compared based on " << CompareBase << "\n\n";
 }
@@ -48,33 +48,36 @@ int main()
     // q.print();
 
     IO();
-    // int noOfStudents;
 
-    // cin >> noOfStudents;
-    // Student students[noOfStudents];
+    int noOfStudents;
 
-    // for (int i = 0; i < noOfStudents; i++)
-    // {
-    //     string name;
-    //     cin >> name;
-    //     string id;
-    //     cin >> id;
-    //     double gpa;
-    //     cin >> gpa;
-    //     Student student(name, id, gpa);
-    //     students[i] = student;
-    // }
+    cin >> noOfStudents;
+    Student students[noOfStudents];
 
-    clock_t start = clock();
-    // int comparions = insertionSortForStudents(students, noOfStudents);
+    for (int i = 0; i < noOfStudents; i++)
+    {
+        string name;
+        cin >> name;
+        string id;
+        cin >> id;
+        double gpa;
+        cin >> gpa;
+        Student student(name, id, gpa);
+        students[i] = student;
+    }
 
-    clock_t end = clock();
-    double elapsed_secs = (double)(end - start) / (double)1000;
-    cout << elapsed_secs;
+    auto start = std::chrono::system_clock::now();
 
-    // outputValues("shell Sort", "Gpa", comparions, elapsed_secs, students, 4);
+    int comparions = insertionSortForStudents(students, noOfStudents);
 
-    // cout << "**********************************************************************************************";
+    auto end = chrono::system_clock::now();
+    auto elapsed = end - start;
+
+    long double elapsed_secs = elapsed.count() * pow(10, -9);
+
+    outputValues("shell Sort", "Gpa", comparions, elapsed_secs, students, 4);
+
+    cout << "**********************************************************************************************";
     // cout << "\n\n";
 
     // clock_t start2 = clock();
@@ -82,20 +85,6 @@ int main()
     // clock_t end2 = clock();
     // double elapsed_secs2 = double(end2 - start2) / 1000.0;
     // outputValues("shell Sort", "Name", comparions2, elapsed_secs2, students, 4);
-
-    // time_t start, end;
-
-    // time(&start);
-    // ios_base::sync_with_stdio(false);
-
-    // int num = 0;
-    // for (int i = 0; i < 1000000; i++)
-    // {
-    //     num += i;
-    // }
-    // time(&end);
-    // double elapsed_secs = double(end - start);
-    // cout << "Time taken: " << elapsed_secs << setprecision(5) << endl;
 
     return 0;
 }
