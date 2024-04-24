@@ -67,7 +67,7 @@ public:
     {
         if (this->isEmpty())
         {
-            cout << "aThis Queue empty " << endl;
+            cout << "This Queue empty " << endl;
             return;
         }
         return arr[front];
