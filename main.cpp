@@ -38,44 +38,50 @@ void outputValues(string AlgorothimName, string CompareBase, int NumberOfCompari
 int main()
 {
 
-    // ArrayBasedQueue<int> q(15);
-    // q.enqueue(10);
-    // q.enqueue(80);
-    // q.enqueue(500);
-    // q.print();
-    // int dqd = q.dequeue();
-    // cout << dqd << endl;
-    // q.print();
+    ArrayBasedQueue<int> q(15);
+    q.enqueue(10);
+    q.enqueue(80);
+    q.enqueue(500);
+    q.print();
+    int dqd = q.dequeue();
+    cout << dqd << endl;
+    q.print();
+    cout << q.isEmpty() << endl;
+    int num = q.peek();
+    cout << num << endl;
+    cout << q.getLength() << endl;
+    q.clear();
+    cout << q.getLength() << endl;
 
-    IO();
+    // IO();
 
-    int noOfStudents;
+    // int noOfStudents;
 
-    cin >> noOfStudents;
-    Student students[noOfStudents];
+    // cin >> noOfStudents;
+    // Student students[noOfStudents];
 
-    for (int i = 0; i < noOfStudents; i++)
-    {
-        string name;
-        cin >> name;
-        string id;
-        cin >> id;
-        double gpa;
-        cin >> gpa;
-        Student student(name, id, gpa);
-        students[i] = student;
-    }
+    // for (int i = 0; i < noOfStudents; i++)
+    // {
+    //     string name;
+    //     cin >> name;
+    //     string id;
+    //     cin >> id;
+    //     double gpa;
+    //     cin >> gpa;
+    //     Student student(name, id, gpa);
+    //     students[i] = student;
+    // }
 
-    auto start = std::chrono::system_clock::now();
+    // auto start = std::chrono::system_clock::now();
 
-    int comparions = insertionSortForStudents(students, noOfStudents);
+    // int comparions = insertionSortForStudents(students, noOfStudents);
 
-    auto end = chrono::system_clock::now();
-    auto elapsed = end - start;
+    // auto end = chrono::system_clock::now();
+    // auto elapsed = end - start;
 
-    long double elapsed_secs = elapsed.count() * pow(10, -9);
+    // long double elapsed_secs = elapsed.count() * pow(10, -9);
 
-    outputValues("shell Sort", "Gpa", comparions, elapsed_secs, students, 4);
+    // outputValues("shell Sort", "Gpa", comparions, elapsed_secs, students, 4);
 
     cout << "**********************************************************************************************";
     // cout << "\n\n";

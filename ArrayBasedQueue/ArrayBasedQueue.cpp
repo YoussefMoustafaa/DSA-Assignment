@@ -67,8 +67,8 @@ public:
     {
         if (this->isEmpty())
         {
-            cout << "This Queue empty " << endl;
-            return;
+            cout << "This Queue empty  " << endl;
+            return  NULL;
         }
         return arr[front];
     }
@@ -80,11 +80,11 @@ public:
     void print()
     {
         cout << '[';
-        for (int i = front; i <= rear; i++)
+        for (int i = front; i < rear; i++)
         {
             cout << arr[i] << " ,";
         }
 
-        cout << ']' << endl;
+        cout << arr[rear] << "]" << endl;
     }
 };
