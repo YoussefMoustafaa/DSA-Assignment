@@ -308,24 +308,34 @@ void circular_linked_list<T>::swap(int firstItemIdx, int secondItemIdx)
         cout << "List is already empty!\n";
         return;
     }
+    if (firstItemIdx == secondItemIdx) {
+        return;
+    }
     Node<T> *t1, *t2;
     t1 = Head;
     t2 = Head;
     for (int i = 0; i < firstItemIdx-1; i++)
         t1 = t1->next;
 
-    if (t1 == Head) {
-        
-    }
     Node<T> *b1 = t1;
-    t1 = t1->next;
+    if (firstItemIdx == 0) {
+        while (b1->next != Head)
+            b1 = b1->next;
+    } else {
+        t1 = t1->next;
+    }
     Node<T> *f1 = t1->next;
     
     for (int i = 0; i < secondItemIdx-1; i++)
         t2 = t2->next;
 
     Node<T> *b2 = t2;
-    t2 = t2->next;
+    if (secondItemIdx == 0) {
+        while (b2->next != Head)
+            b2 = b2->next;
+    } else {
+        t2 = t2->next;
+    }
     Node<T> *f2 = t2->next;
 
     b1->next = t2;
@@ -336,7 +346,6 @@ void circular_linked_list<T>::swap(int firstItemIdx, int secondItemIdx)
     else
         t2->next = t1;
     t1->next = f2;
-
 
     // 8    b1
     // 6    t1
@@ -362,6 +371,13 @@ int main() {
 
     list.print();
 
+    // list.removeAtHead();
+    // list.print();
+    // list.removeAtTail();
+    // list.print();
+    // list.removeAt(2);
+    // list.print();
+
     list.insertAt(7, 0);
     list.print();
     list.insertAt(6, 5);
@@ -369,10 +385,9 @@ int main() {
     list.insertAt(9, 2);
     list.print();
 
+    cout << list.isItemAtEqual(1, 6) << endl;
 
-    cout << list.isItemAtEqual(1, 2) << endl;
-
-    list.swap(0, 1);
+    list.swap(1, 3);
     list.print();
 
     cout << "clear" << endl;
