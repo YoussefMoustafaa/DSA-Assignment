@@ -1,0 +1,15 @@
+Algorithm: Insertion Sort
+Number of comparisons: 3 comparisons
+Running Time:1400 nanoseconds
+Name: Sara
+ID: 78697
+GPA: 3.1
+Name: Ali
+ID: 3541
+GPA: 3.5
+Name: Mariam
+ID: 69712
+GPA: 3.7
+Name: Mohamed
+ID: 97848
+GPA: 2.2
