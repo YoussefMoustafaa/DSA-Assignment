@@ -3,7 +3,7 @@
 //
 #include "SingleLinkedLIst.h"
 template<typename T>
-Node<T>::Node() {
+NodeS<T>::NodeS() {
     this->data=0;
     this->next=NULL;
 }
@@ -16,65 +16,65 @@ SingleLinkedLIst<T>::SingleLinkedLIst(){
 template<typename T>
 SingleLinkedLIst<T>::SingleLinkedLIst(T array[],int arraySize){//time o(n) space o(n)
     this->size=1;
-    Node<T> *newNode;
-    first=new Node<T>;
+    NodeS<T> *newNodeS;
+    first=new NodeS<T>;
     first->data=array[0];
     first->next=NULL;
     last=first;
     for(int i = 1; i<arraySize; i++)
     {
-        newNode =new Node<T>;
-        newNode->data=array[i];
-        newNode->next=NULL;
-        last->next=newNode;
-        last=newNode;
+        newNodeS =new NodeS<T>;
+        newNodeS->data=array[i];
+        newNodeS->next=NULL;
+        last->next=newNodeS;
+        last=newNodeS;
         size++;
     }
 };
 
 template<typename T>
 void SingleLinkedLIst<T>::insertAtHead(T element){ //time o(1) space o(1)
-    Node<T> *newNode = new Node<T>();
-    newNode->data = element;
-    newNode->next = NULL;
+    NodeS<T> *newNodeS = new NodeS<T>();
+    newNodeS->data = element;
+    newNodeS->next = NULL;
     if(first){
-        newNode->next=first;
-        first=newNode;
+        newNodeS->next=first;
+        first=newNodeS;
     }else{
-        first=last=newNode;
+        first=last=newNodeS;
     }size++;
 };
 template<typename T>
 void SingleLinkedLIst<T>::insertAtTail (T element){
-    Node<T> *newNode = new Node<T>();
-    newNode->data = element;
-    newNode->next = NULL;
+    NodeS<T> *newNodeS = new NodeS<T>();
+    newNodeS->data = element;
+    newNodeS->next = NULL;
     if(last){
-        last->next=newNode;
-        last=newNode;
+        last->next=newNodeS;
+        last=newNodeS;
     }else{
-        first=last=newNode;
+        first=last=newNodeS;
     }size++;
 };
 template<typename T>
 void SingleLinkedLIst<T>:: insertAt (T element, int index){
-    Node<T> *newNode = new Node<T>();
-    newNode->data = element;
-    newNode->next = NULL;
-    Node<T> *postion=first;
+    NodeS<T> *newNodeS = new NodeS<T>();
+    newNodeS->data = element;
+    newNodeS->next = NULL;
+    NodeS<T> *postion=first;
     if(index<0 or size<index){
         throw out_of_range("Index is out of scope");
     }else if(index==0){
-        newNode->next=first;
-        first=newNode;
+        newNodeS->next=first;
+        first=newNodeS;
         size++;
     }else{
-        Node<T> *postion=first;
+        NodeS<T> *postion=first;
         for(int i =0 ; i<index-1;i++){
             postion=postion->next;
         }
-        newNode->next=postion->next;
-        postion->next=newNode;
+        newNodeS->next=postion->next;
+        postion->next=newNodeS;
         size++;
         if(index==(size-1)){
             last=postion;
@@ -90,7 +90,7 @@ void SingleLinkedLIst<T>:: removeAtHead(){
         first=last=NULL;
         size--;
     }else{
-        Node<T> *temp =first;
+        NodeS<T> *temp =first;
         first=first->next;
         delete temp;
         size--;
@@ -105,7 +105,7 @@ void SingleLinkedLIst<T>:: removeAtTail (){
         first=last=NULL;
         size--;
     }else{
-        Node<T> *postion=first;
+        NodeS<T> *postion=first;
         for(int i =0 ; i<size-2;i++){
             postion=postion->next;
         }
@@ -117,7 +117,7 @@ void SingleLinkedLIst<T>:: removeAtTail (){
 };
 template<typename T>
 void SingleLinkedLIst<T> ::display() {
-    Node<T> *postion=first;
+    NodeS<T> *postion=first;
     cout<<"List elements: ";
     for(int i =0; i<size;i++){
         cout<<postion->data<<" ";
@@ -126,7 +126,7 @@ void SingleLinkedLIst<T> ::display() {
 }
 template<typename T>
 void SingleLinkedLIst<T> ::removeAt(int index){
-    Node<T> *postion=first;
+    NodeS<T> *postion=first;
     if(index<0 or size<index){
         throw out_of_range("Index is out of scope");
     }else if(index==1){
@@ -135,7 +135,7 @@ void SingleLinkedLIst<T> ::removeAt(int index){
         delete postion;
         size--;
     }else{
-        Node<T> *postion=first,*temp=NULL;
+        NodeS<T> *postion=first,*temp=NULL;
         for(int i =0 ; i<index;i++){
             temp=postion;
             postion=postion->next;
@@ -152,7 +152,7 @@ T SingleLinkedLIst<T> :: retrieveAt (int index){
     if(index<0 or index>=size){
         throw out_of_range("Index is out of scope");
     }
-    Node<T> *postion=first;
+    NodeS<T> *postion=first;
     for(int i =0 ; i<index;i++){
         postion=postion->next;
     }
@@ -165,7 +165,7 @@ void SingleLinkedLIst<T> :: replaceAt (T newElement, int index){
     }else if(index==0){
         first->data=newElement;
     }else{
-        Node<T> *postion=first;
+        NodeS<T> *postion=first;
         for(int i =0 ; i<index;i++){
             postion=postion->next;
         }postion->data=newElement;
@@ -176,7 +176,7 @@ void SingleLinkedLIst<T> :: replaceAt (T newElement, int index){
 };
 template<typename T>
 bool SingleLinkedLIst<T> :: isExist (T element){
-    Node<T> *postion=first;
+    NodeS<T> *postion=first;
     for(int i=0;i<size;i++){
         if(postion->data==element)
             return 1;
@@ -187,7 +187,7 @@ bool SingleLinkedLIst<T> :: isExist (T element){
 };
 template<typename T>
 bool SingleLinkedLIst<T> ::isItemAtEqual (T element, int index){
-    Node<T> *postion=first;
+    NodeS<T> *postion=first;
     if(index<0 or size<index){
         throw out_of_range("Index is out of scope");
     }else{
@@ -206,7 +206,7 @@ void SingleLinkedLIst<T> ::swap (int firstItemIdx, int secondItemIdx){
     }else if(secondItemIdx<0 or size<=secondItemIdx){
         throw out_of_range("Second index is out of scope");
     }else{
-        Node<T> *Fposition=first,*Sposition=first;
+        NodeS<T> *Fposition=first,*Sposition=first;
         for(int i =0 ;i<firstItemIdx;i++){
             Fposition=Fposition->next;
         }for(int i =0 ;i<secondItemIdx;i++){
@@ -230,7 +230,7 @@ int SingleLinkedLIst<T> :: linkedListSize (){
 };
 template<typename T>
 void SingleLinkedLIst<T> ::clear (){
-    Node<T> *postion=first;
+    NodeS<T> *postion=first;
 
     while (first){
         first=first->next;
@@ -241,7 +241,7 @@ void SingleLinkedLIst<T> ::clear (){
 };
 template<typename T>
 void SingleLinkedLIst<T> ::print (){
-    Node<T> *postion=first;
+    NodeS<T> *postion=first;
     cout<<"List elements: ";
     for(int i =0; i<size;i++){
         cout<<postion->data<<" ";

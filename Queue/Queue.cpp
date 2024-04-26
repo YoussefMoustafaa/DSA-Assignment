@@ -13,19 +13,19 @@ Queue<T>::Queue()
 template <class T>
 void Queue<T>::enqueue(T data)
 {
-    Node<T> *newNode = new Node<T>();
-    newNode->data = data;
-    newNode->next = NULL;
+    NodeG<T> *newNodeG = new NodeG<T>();
+    newNodeG->data = data;
+    newNodeG->next = NULL;
 
     if (front == NULL)
     {
-        front = newNode;
-        rear = newNode;
+        front = newNodeG;
+        rear = newNodeG;
     }
     else
     {
-        rear->next = newNode;
-        rear = newNode;
+        rear->next = newNodeG;
+        rear = newNodeG;
     }
     size++;
 }
@@ -50,7 +50,7 @@ T Queue<T>::dequeue()
         return 0;
     }
     T ans = front->data;
-    Node<T> *temp = front;
+    NodeG<T> *temp = front;
     front = front->next;
     delete temp;
     size--;
@@ -72,7 +72,7 @@ bool Queue<T>::isEmpty()
 template <class t>
 void Queue<t>::print()
 {
-    Node<t> *temp = front;
+    NodeG<t> *temp = front;
     cout << '[';
     while (temp != NULL)
     {
@@ -86,7 +86,7 @@ void Queue<t>::print()
 template <class T>
 void Queue<T>::clear()
 {
-    Node<T> *temp;
+    NodeG<T> *temp;
     while (front != NULL)
     {
         temp = front;

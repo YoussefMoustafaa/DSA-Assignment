@@ -24,9 +24,6 @@ Student ::Student(Student &student)
     this->gpa = student.gpa;
 }
 
-Student::Student()
-{
-}
 
 Student :: Student(const Student& other) : name(other.name), id(other.id), gpa(other.gpa) {}
 
@@ -71,37 +68,6 @@ double Student::getGPA() const
 {
     return this->gpa;
 }
-
-
-void Student::setName(string studName)
-{
-    this->name = studName;
-}
-
-void Student::setID(string studID)
-{
-    this->id = studID;
-}
-void Student::setGPA(double studGpa)
-{
-    this->gpa = studGpa;
-}
-
-string Student::getName() const
-{
-    return this->name;
-}
-
-string Student::getID() const
-{
-    return this->id;
-}
-
-double Student::getGPA() const
-{
-    return this->gpa;
-}
-
 bool Student::operator<(const Student &st)
 {
     return this->name < st.name;

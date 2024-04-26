@@ -2,17 +2,17 @@
 using namespace std;
 
 template <class T>
-struct Node
+struct NodeO
 {
     T data;
-    Node<T> *next;
-    Node<T> *prev;
+    NodeO<T> *next;
+    NodeO<T> *prev;
 };
 
 template <class T>
 class Stack
 {
-    Node<T> *rear;
+    NodeO<T> *top;
     int size;
 
 public:
@@ -31,23 +31,23 @@ template <class T>
 Stack<T>::Stack()
 {
 //    this->front = NULL;
-    this->rear = NULL;
+    this->top = NULL;
     this->size = 0;
 }
 
 template <class T>
 void Stack<T>::Push(T data)
 {
-    Node<T> *newNode = new Node<T>();
-    newNode->data = data;
-    newNode->next = NULL;
-    newNode->prev = NULL;
-    if (rear == NULL) {
-        rear = newNode;
+    NodeO<T> *newNodeO = new NodeO<T>();
+    newNodeO->data = data;
+    newNodeO->next = NULL;
+    newNodeO->prev = NULL;
+    if (top == NULL) {
+        top = newNodeO;
     } else {
-        rear->next = newNode;
-        newNode->prev = rear;
-        rear = newNode;
+        top->next = newNodeO;
+        newNodeO->prev = top;
+        top = newNodeO;
     }
     size++;
 }
@@ -55,27 +55,27 @@ void Stack<T>::Push(T data)
 template <class T>
 T Stack<T>::Top()
 {
-    if (rear == NULL)
+    if (top == NULL)
     {
         cout << "Stack is empty" << endl;
         return 0;
     }
-    return rear->data;
+    return top->data;
 }
 
 template <class T>
 T Stack<T>::Pop()
 {
-    if (rear == NULL)
+    if (top == NULL)
     {
         cout << "Stack is empty" << endl;
         return 0;
     }
-    T ans = rear->data;
-    Node<T> *temp = rear;
-    rear = rear->prev;
-    if (rear != NULL) {
-        rear->next = NULL;
+    T ans = top->data;
+    NodeO<T> *temp = top;
+    top = top->prev;
+    if (top != NULL) {
+        top->next = NULL;
     }
     delete temp;
     size--;
@@ -97,7 +97,7 @@ bool Stack<T>::isEmpty()
 template <class t>
 void Stack<t>::print()
 {
-    Node<t> *temp = rear;
+    NodeO<t> *temp = top;
     cout << '[';
     while (temp != NULL)
     {
@@ -111,34 +111,34 @@ void Stack<t>::print()
 template <class T>
 void Stack<T>::clear()
 {
-    Node<T> *temp;
-    while (rear != NULL)
+    NodeO<T> *temp;
+    while (top != NULL)
     {
-        temp = rear;
-        rear = rear->prev;
+        temp = top;
+        top = top->prev;
         delete temp;
     }
-    rear = NULL;
+    top = NULL;
     size = 0;
 }
-int main(){
-    Stack <int> w;
-    w.Push(5);
-    w.Push(4);
-    w.Push(3);
-    w.Push(2);
-    w.Push(1);
-    cout<<w.Pop()<<endl;
-    cout<<w.Pop()<<endl;
-    cout<<w.Pop()<<endl;
-
-    cout<<w.Size()<<endl;
-    w.print();
-    cout<<w.Top()<<endl;
-    w.clear();
-    cout<<w.Size()<<endl;
-    w.print();
-    cout<<w.isEmpty()<<endl;
-    cout<<w.Top()<<endl;
-}
+//int main(){
+//    Stack <int> w;
+//    w.Push(5);
+//    w.Push(4);
+//    w.Push(3);
+//    w.Push(2);
+//    w.Push(1);
+//    cout<<w.Pop()<<endl;
+//    cout<<w.Pop()<<endl;
+//    cout<<w.Pop()<<endl;
+//
+//    cout<<w.Size()<<endl;
+//    w.print();
+//    cout<<w.Top()<<endl;
+//    w.clear();
+//    cout<<w.Size()<<endl;
+//    w.print();
+//    cout<<w.isEmpty()<<endl;
+//    cout<<w.Top()<<endl;
+//}
 

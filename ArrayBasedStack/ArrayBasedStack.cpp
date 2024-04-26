@@ -7,7 +7,7 @@ class ArrayBasedStack
 private:
     T *arr;
 
-    int rear;
+    int top;
     int size;
     int length = 0 ;
 
@@ -16,11 +16,11 @@ public:
     {
         this->size = size;
         arr = new T[size];
-        rear = -1;
+        top = -1;
     }
     void Push(T data)
     {
-        if (rear == size - 1)
+        if (top == size - 1)
         {
             cout << "Stack is full" << endl;
             return;
@@ -28,20 +28,20 @@ public:
         else
         {
 
-            rear++;
-            arr[rear] = data;
+            top++;
+            arr[top] = data;
             length++;
         }
     }
     T Pop()
     {
-        if (rear == -1 )
+        if (top == -1 )
         {
             cout << "Stack is empty" << endl;
         }
         else {
-            T data = arr[rear];
-            rear--;
+            T data = arr[top];
+            top--;
             length--;
             return data;
         }
@@ -55,7 +55,7 @@ public:
 
     bool isEmpty()
     {
-        return rear == -1;
+        return top == -1;
     }
 
     T Top()
@@ -63,19 +63,19 @@ public:
         if (this->isEmpty())
         {
             cout << "This Stack is empty " << endl;
-            return arr[rear];
+            return arr[top];
         }
-        return arr[rear];
+        return arr[top];
     }
     void clear()
     {
-        rear = -1;
+        top = -1;
         length = 0;
     }
     void print()
     {
         cout << '[';
-        for (int i = 0; i <= rear; i++)
+        for (int i = 0; i <= top; i++)
         {
             cout << arr[i] << " ,";
         }
@@ -83,25 +83,25 @@ public:
         cout << ']' << endl;
     }
 };
-int main(){
-    ArrayBasedStack<int> w(5);
-    w.Push(5);
-    w.Push(4);
-    w.Push(3);
-    w.Push(2);
-    w.Push(1);
-    cout<<w.Pop()<<endl;
-    cout<<w.Pop()<<endl;
-    cout<<w.Pop()<<endl;
-
-    cout<<w.Size()<<endl;
-    w.print();
-    cout<<w.Top()<<endl;
-    w.clear();
-    cout<<w.Size()<<endl;
-    w.print();
-    cout<<w.isEmpty()<<endl;
-    cout<<w.Top()<<endl;
-
-
-}
+//int main(){
+//    ArrayBasedStack<int> w(5);
+//    w.Push(5);
+//    w.Push(4);
+//    w.Push(3);
+//    w.Push(2);
+//    w.Push(1);
+//    cout<<w.Pop()<<endl;
+//    cout<<w.Pop()<<endl;
+//    cout<<w.Pop()<<endl;
+//
+//    cout<<w.Size()<<endl;
+//    w.print();
+//    cout<<w.Top()<<endl;
+//    w.clear();
+//    cout<<w.Size()<<endl;
+//    w.print();
+//    cout<<w.isEmpty()<<endl;
+//    cout<<w.Top()<<endl;
+//
+//
+//}

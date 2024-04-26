@@ -7,20 +7,20 @@ using namespace std;
 #define SINGLELINKEDLIST_SINGLELINKEDLIST_H
 template<typename T>
 
-class Node{
+class NodeS{
 
 public:
     T data;
-    Node<T> *next;
-    Node();
+    NodeS<T> *next;
+    NodeS();
 };
 
 template<typename T>
 class SingleLinkedLIst {
     private:
         int size;
-        Node<T> *first;
-        Node<T> *last;
+        NodeS<T> *first;
+        NodeS<T> *last;
     public:
         SingleLinkedLIst();    //tested
         SingleLinkedLIst(T array[],int size);    //tested

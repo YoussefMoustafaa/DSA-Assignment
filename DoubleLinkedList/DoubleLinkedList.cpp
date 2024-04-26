@@ -2,7 +2,7 @@
 #include <iostream>
 
 template<typename T>
-Node<T>::Node(T d){
+NodeD<T>::NodeD(T d){
      {
         data = d;
         prev = nullptr;
@@ -23,32 +23,32 @@ DoubleLinkedList<T>::DoubleLinkedList(T array[], int arraySize) {
 }
 template<typename T>
 void DoubleLinkedList<T>::insertAtHead(T element) {
-    Node<T>* newNode = new Node<T>(element);
+    NodeD<T>* newNodeD = new NodeD<T>(element);
     if (head == nullptr) {
-        head = newNode;
+        head = newNodeD;
     } else {
-        newNode->next = head;
-        head->prev = newNode;
-        head = newNode;
+        newNodeD->next = head;
+        head->prev = newNodeD;
+        head = newNodeD;
     }
 }
 
 
 template<typename T>
 void DoubleLinkedList<T>::insertAtTail(T element){
-    Node<T>* newNode = new Node<T>(element);
+    NodeD<T>* newNodeD = new NodeD<T>(element);
     if (head == nullptr) {
-    head = newNode;
+    head = newNodeD;
     }
     else {
-        Node<T>* current = head;
+        NodeD<T>* current = head;
         while (current->next != nullptr)
         {
             current = current->next;
         }
-        current->next = newNode;
-        newNode->next = current;
-        newNode->next = nullptr;
+        current->next = newNodeD;
+        newNodeD->next = current;
+        newNodeD->next = nullptr;
     }
 }
 
@@ -57,17 +57,17 @@ void DoubleLinkedList<T>::insertAt(T element, int index) {
     if (index < 0)
         return; 
 
-    Node<T>* newNode = new Node<T>(element);
+    NodeD<T>* newNodeD = new NodeD<T>(element);
 
     if (index == 0) {
         insertAtHead(element);
     } else {
         if (head == nullptr) {
             cout << "Position not found." << endl;
-            delete newNode; 
+            delete newNodeD; 
             return;
         }
-        Node<T>* current = head;
+        NodeD<T>* current = head;
         int currentIndex = 0;
         while (current->next != nullptr && currentIndex < index - 1) {
             current = current->next;
@@ -75,18 +75,18 @@ void DoubleLinkedList<T>::insertAt(T element, int index) {
         }
         if (currentIndex != index - 1) {
             cout << "Position not found." << endl;
-            delete newNode; 
+            delete newNodeD; 
             return;
         }
 
         if (current->next == nullptr && currentIndex == index - 1) {
             insertAtTail(element);
         } else {
-            newNode->next = current->next;
+            newNodeD->next = current->next;
             if (current->next != nullptr)
-                current->next->prev = newNode;
-            current->next = newNode;
-            newNode->prev = current;
+                current->next->prev = newNodeD;
+            current->next = newNodeD;
+            newNodeD->prev = current;
         }
     }
 }
@@ -96,7 +96,7 @@ void DoubleLinkedList<T>::removeAtHead(){
 if(head == nullptr) {
     return;
 }
- Node<T>* temp = head;
+ NodeD<T>* temp = head;
  if(head->next == nullptr) {
      head = nullptr;
     }
@@ -118,8 +118,8 @@ void DoubleLinkedList<T>::removeAtTail() {
         delete head;
         head = nullptr;
     } else {
-        Node<T>* previous = nullptr;
-        Node<T>* current = head;
+        NodeD<T>* previous = nullptr;
+        NodeD<T>* current = head;
         
         while (current->next != nullptr) {
             previous = current;
@@ -139,12 +139,12 @@ void DoubleLinkedList<T>::removeAtTail() {
         // If the list is empty, do nothing
         return;
     } else if (head->next == nullptr) {
-        // If the list has only one node
+        // If the list has only one NodeD
         delete head;
         head = nullptr;
     } else {
-        // If the list has more than one node
-        Node<T>* current = head;
+        // If the list has more than one NodeD
+        NodeD<T>* current = head;
         while (current->next->next != nullptr) {
             current = current->next;
         }
@@ -163,8 +163,8 @@ void DoubleLinkedList<T>::removeAt(int index) {
         throw out_of_range("Index is out of scope");
     }
 
-    Node<T>* current = head;
-    Node<T>* previous = nullptr;
+    NodeD<T>* current = head;
+    NodeD<T>* previous = nullptr;
     int currentIndex = 0;
 
     while (current != nullptr && currentIndex < index) {
@@ -201,7 +201,7 @@ T DoubleLinkedList<T>::retrieveAt(int index) {
         throw out_of_range("The list is empty.");
     }
 
-    Node<T>* current = head;
+    NodeD<T>* current = head;
     int currentIndex = 0;
     while (current != nullptr && currentIndex < index) {
         current = current->next;
@@ -226,7 +226,7 @@ void DoubleLinkedList<T>::replaceAt(T newElement, int index) {
         return;
     }
 
-    Node<T>* current = head;
+    NodeD<T>* current = head;
     int currentIndex = 0;
     while (current != nullptr && currentIndex < index) {
         current = current->next;
@@ -243,7 +243,7 @@ void DoubleLinkedList<T>::replaceAt(T newElement, int index) {
 
 template<typename T>
 bool DoubleLinkedList<T>::isExist(T element) {
-    Node<T>* current = head;
+    NodeD<T>* current = head;
     while (current != nullptr) {
         if (current->data == element) {
             return true; 
@@ -260,7 +260,7 @@ bool DoubleLinkedList<T>::isItemAtEqual(T element, int index) {
         return false;
     }
 
-    Node<T>* current = head;
+    NodeD<T>* current = head;
     int currentIndex = 0;
     while (current != nullptr && currentIndex < index) {
         current = current->next;
@@ -283,28 +283,28 @@ void DoubleLinkedList<T>::swap(int firstItemIdx, int secondItemIdx) {
     if (firstItemIdx == secondItemIdx) {
         return;
     }
-    Node<T>* firstNode = nullptr;
-    Node<T>* secondNode = nullptr;
+    NodeD<T>* firstNodeD = nullptr;
+    NodeD<T>* secondNodeD = nullptr;
 
-    Node<T>* current = head;
+    NodeD<T>* current = head;
     int currentIndex = 0;
-    while (current != nullptr && (firstNode == nullptr || secondNode == nullptr)) {
+    while (current != nullptr && (firstNodeD == nullptr || secondNodeD == nullptr)) {
         if (currentIndex == firstItemIdx) {
-            firstNode = current;
+            firstNodeD = current;
         }
         if (currentIndex == secondItemIdx) {
-            secondNode = current;
+            secondNodeD = current;
         }
         current = current->next;
         currentIndex++;
     }
-    if (firstNode == nullptr || secondNode == nullptr) {
+    if (firstNodeD == nullptr || secondNodeD == nullptr) {
         cout << "Invalid index. One or both indices are out of bounds." << endl;
         return;
     }
-    T temp = firstNode->data;
-    firstNode->data = secondNode->data;
-    secondNode->data = temp;
+    T temp = firstNodeD->data;
+    firstNodeD->data = secondNodeD->data;
+    secondNodeD->data = temp;
 }
 template<typename T>
 bool DoubleLinkedList<T>::isEmpty() {
@@ -317,7 +317,7 @@ bool DoubleLinkedList<T>::isEmpty() {
 template<typename T>
 int DoubleLinkedList<T>::linkedListSize() {
     int size = 0;
-    Node<T>* current = head;
+    NodeD<T>* current = head;
     while (current != nullptr) {
         size++;
         current = current->next;
@@ -326,9 +326,9 @@ int DoubleLinkedList<T>::linkedListSize() {
 }
 template<typename T>
 void DoubleLinkedList<T>::clear() {
-    Node<T>* current = head;
+    NodeD<T>* current = head;
     while (current != nullptr) {
-        Node<T>* temp = current;
+        NodeD<T>* temp = current;
         current = current->next;
         delete temp;
     }
@@ -336,7 +336,7 @@ void DoubleLinkedList<T>::clear() {
 }
 template<typename T>
 void DoubleLinkedList<T>::print() {
-    Node<T>* current = head;
+    NodeD<T>* current = head;
     cout << "Linked List: ";
     while (current != nullptr) {
         cout << current->data << " ";

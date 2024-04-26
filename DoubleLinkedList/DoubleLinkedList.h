@@ -3,18 +3,18 @@ using namespace std;
 #ifndef DOUBLELINKEDLIST_DOUBLELINKEDLIST_H
 #define DOUBLELINKEDLIST_DOUBLELINKEDLIST_H
 template <typename T>
-class Node {
+class NodeD {
     public:
     T data;
-    Node<T>* prev;
-    Node<T>* next;
-    Node(T d);
+    NodeD<T>* prev;
+    NodeD<T>* next;
+    NodeD(T d);
 };
 
 template <typename T>
 class DoubleLinkedList {
 private:
-    Node<T>* head;
+    NodeD<T>* head;
 public:
     DoubleLinkedList(); // Constructor
     DoubleLinkedList(T array[],int size);

@@ -5,16 +5,16 @@
 using namespace std;
 
 template <class T>
-struct Node
+struct NodeG
 {
     T data;
-    Node<T> *next;
+    NodeG<T> *next;
 };
 
 template <class T>
 class Queue
 {
-    Node<T> *front, *rear;
+    NodeG<T> *front, *rear;
     int size;
 
 public:
