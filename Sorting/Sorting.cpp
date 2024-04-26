@@ -43,3 +43,40 @@ void insertionSort(T arr[], int n)
 }
 
 
+// quicksort mestive
+template<class T>
+int partition(T A[], int l, int h)
+{
+    T pivot = A[l];
+    int i = l, j = h;
+
+    while (i < j)
+    {
+        while (A[i] <= pivot)
+        {
+            i++;
+        }
+
+        while (A[j] > pivot)
+        {
+            j--;
+        }
+
+        if (i < j)
+            swap(A[i], A[j]);
+    }
+
+    swap(A[l], A[j]);
+    return j;
+}
+
+template<class T>
+void quickSort(T A[], int l, int h)
+{
+    int j;
+    if (l < h) {
+        j = partition(A, l, h);
+        quickSort(A, l, j);
+        quickSort(A, j+1, h);
+    }
+}
