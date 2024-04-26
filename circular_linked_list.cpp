@@ -238,6 +238,88 @@ T circular_linked_list<T>::retrieveAt(int index)
     }
 }
 
+template<typename T>
+void circular_linked_list<T>::replaceAt(T newElement, int index)
+{
+    int size = linkedListSize();
+    if (index < 0 || index > size) {
+        cout << "Invalid Index!\n";
+        return;
+    }
+    if (isEmpty()) {
+        cout << "List is already empty!\n";
+    } else {
+        Node<T> *p = Head;
+        for (int i = 0; i < index-1; i++) 
+            p = p->next;
+        p->data = newElement;
+    }
+}
+
+template<typename T>
+bool circular_linked_list<T>::isExist(T element)
+{
+    if (isEmpty()) {
+        cout << "List is already empty!\n";
+        return false;
+    } else {
+        Node<T> *p = Head;
+        do
+        {
+            if (p->data == element)
+                return true;
+            p = p->next;
+        } while (p != Head);
+        return false;
+    }
+}
+
+template<typename T>
+bool circular_linked_list<T>::isItemAtEqual(T element, int index)
+{
+    int size = linkedListSize();
+    if (index < 0 || index > size) {
+        cout << "Invalid Index!\n";
+        return false;
+    }
+    if (isEmpty()) {
+        cout << "List is already empty!\n";
+        return false;
+    }
+    Node<T> *p = Head;
+    for (int i = 0; i < index-1; i++)
+        p = p->next;
+
+    if (p->data == element)
+        return true;
+        
+    return false;
+}
+
+template<typename T>
+void circular_linked_list<T>::swap(int firstItemIdx, int secondItemIdx)
+{
+    int size = linkedListSize();
+    if (firstItemIdx < 0 || firstItemIdx > size || secondItemIdx < 0 || secondItemIdx > size) {
+        cout << "Invalid Index!\n";
+        return;
+    }
+    if (isEmpty()) {
+        cout << "List is already empty!\n";
+        return;
+    }
+    Node<T> *t1, *t2;
+    t1 = Head;
+    t2 = Head;
+    for (int i = 0; i < firstItemIdx; i++)
+        t1 = t1->next;
+    
+    for (int i = 0; i < secondItemIdx; i++)
+        t2 = t2->next;
+    
+    
+}
+
 
 
 using namespace std;
@@ -266,8 +348,14 @@ int main() {
     list.print();
     list.removeAt(3);
     list.print();
+    list.replaceAt(5, 2);
+    list.print();
+    list.replaceAt(7, 1);
+    list.print();
+    list.replaceAt(6, 4);
+    list.print();
 
-    cout << list.retrieveAt(2) << endl;
+    cout << list.isItemAtEqual(6, 4) << endl;
 
     cout << "clear" << endl;
     list.clear();
