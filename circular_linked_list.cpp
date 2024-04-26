@@ -311,12 +311,39 @@ void circular_linked_list<T>::swap(int firstItemIdx, int secondItemIdx)
     Node<T> *t1, *t2;
     t1 = Head;
     t2 = Head;
-    for (int i = 0; i < firstItemIdx; i++)
+    for (int i = 0; i < firstItemIdx-1; i++)
         t1 = t1->next;
+
+    if (t1 == Head) {
+        
+    }
+    Node<T> *b1 = t1;
+    t1 = t1->next;
+    Node<T> *f1 = t1->next;
     
-    for (int i = 0; i < secondItemIdx; i++)
+    for (int i = 0; i < secondItemIdx-1; i++)
         t2 = t2->next;
-    
+
+    Node<T> *b2 = t2;
+    t2 = t2->next;
+    Node<T> *f2 = t2->next;
+
+    b1->next = t2;
+    if (t2 != f1) {
+        t2->next = f1;
+        b2->next = t1;
+    }
+    else
+        t2->next = t1;
+    t1->next = f2;
+
+
+    // 8    b1
+    // 6    t1
+    // 3    f1
+    // 2    b2
+    // 6    t2
+    // 9    b2
     
 }
 
@@ -342,20 +369,11 @@ int main() {
     list.insertAt(9, 2);
     list.print();
 
-    list.removeAtHead();
-    list.print();
-    list.removeAtTail();
-    list.print();
-    list.removeAt(3);
-    list.print();
-    list.replaceAt(5, 2);
-    list.print();
-    list.replaceAt(7, 1);
-    list.print();
-    list.replaceAt(6, 4);
-    list.print();
 
-    cout << list.isItemAtEqual(6, 4) << endl;
+    cout << list.isItemAtEqual(1, 2) << endl;
+
+    list.swap(0, 1);
+    list.print();
 
     cout << "clear" << endl;
     list.clear();
