@@ -9,27 +9,27 @@ using namespace std;
 
 
 template<typename T>
-class Node
+class NodeC
 {
 public:
     T data;
-    Node<T> *next;
-    Node();
-    Node(T x);
+    NodeC<T> *next;
+    NodeC();
+    NodeC(T x);
 };
 
 
 // T data;
-// Node<T> *next;
-// static Node<T> *Head;
+// NodeC<T> *next;
+// static NodeC<T> *Head;
 
 template<typename T>
 class circular_linked_list
 {
 private:
-    Node<T> *Head;
+    NodeC<T> *Head;
 public:
-    // Node(T data, Node *next());
+    // NodeC(T data, NodeC *next());
     int linkedListSize();
     bool isEmpty();
     void clear();

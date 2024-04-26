@@ -1,0 +1,111 @@
+Sorted By GPA
+
+
+Algorithm: Insertion Sort
+Number of comparisons: 3 comparisons
+Running Time:1400 nanoseconds
+Sorted List:
+Name: Mohamed
+ID: 97848
+GPA: 2.2
+Name: Sara
+ID: 78697
+GPA: 3.1
+Name: Ali
+ID: 3541
+GPA: 3.5
+Name: Mariam
+ID: 69712
+GPA: 3.7
+
+
+Algorithm: Quick Sort
+Number of comparisons: 13 comparisons
+Running Time:1300 nanoseconds
+Sorted List:
+Name: Mohamed
+ID: 97848
+GPA: 2.2
+Name: Sara
+ID: 78697
+GPA: 3.1
+Name: Ali
+ID: 3541
+GPA: 3.5
+Name: Mariam
+ID: 69712
+GPA: 3.7
+
+
+Algorithm: Shell Sort
+Number of comparisons: 1 comparisons
+Running Time:1800 nanoseconds
+Sorted List:
+Name: Mohamed
+ID: 97848
+GPA: 2.2
+Name: Sara
+ID: 78697
+GPA: 3.1
+Name: Ali
+ID: 3541
+GPA: 3.5
+Name: Mariam
+ID: 69712
+GPA: 3.7
+
+
+Algorithm: Merge Sort
+Number of comparisons: 5 comparisons
+Running Time:1800 nanoseconds
+Sorted List:
+Name: Mohamed
+ID: 97848
+GPA: 2.2
+Name: Sara
+ID: 78697
+GPA: 3.1
+Name: Ali
+ID: 3541
+GPA: 3.5
+Name: Mariam
+ID: 69712
+GPA: 3.7
+
+
+Algorithm: Selection Sort
+Number of comparisons: 6 comparisons
+Running Time:700 nanoseconds
+Sorted List:
+Name: Mohamed
+ID: 97848
+GPA: 2.2
+Name: Sara
+ID: 78697
+GPA: 3.1
+Name: Ali
+ID: 3541
+GPA: 3.5
+Name: Mariam
+ID: 69712
+GPA: 3.7
+
+
+Algorithm: Bubble Sort
+Number of comparisons: 6 comparisons
+Running Time:600 nanoseconds
+Sorted List:
+Name: Mohamed
+ID: 97848
+GPA: 2.2
+Name: Sara
+ID: 78697
+GPA: 3.1
+Name: Ali
+ID: 3541
+GPA: 3.5
+Name: Mariam
+ID: 69712
+GPA: 3.7
+
+

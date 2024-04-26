@@ -4,32 +4,32 @@
 using namespace std;
 
 
-// class Node
+// class NodeC
 // {
 // private:
 //     int data;
-//     Node* next;
+//     NodeC* next;
 // public:
-//     Node(int data, Node* next);
-//     Node();
+//     NodeC(int data, NodeC* next);
+//     NodeC();
 
-//     void Display(Node* head);
-//     void recursive_display(Node* head);
+//     void Display(NodeC* head);
+//     void recursive_display(NodeC* head);
 // };
 
-// Node::Node() {
+// NodeC::NodeC() {
 //     this->data = 0;
 //     this->next = nullptr;
 // }
 
-// Node::Node(int data, Node* next)
+// NodeC::NodeC(int data, NodeC* next)
 // {
 //     this->data = data;
 //     this->next = next;
 // }
 
-// void Node::Display(Node* head) {
-//     Node *p = head;
+// void NodeC::Display(NodeC* head) {
+//     NodeC *p = head;
 //     do
 //     {
 //         cout << p->data << ' ';
@@ -38,9 +38,9 @@ using namespace std;
     
 // }
 
-// void Node::recursive_display(Node* head) {
+// void NodeC::recursive_display(NodeC* head) {
 //     static int flag = 0;
-//     static Node* p = head;
+//     static NodeC* p = head;
 //     if (p != head || flag == 0) {
 //         flag = 1;
 //         cout << p->data << ' ';
@@ -50,13 +50,13 @@ using namespace std;
 
 
 template<typename T>
-Node<T>::Node() {
+NodeC<T>::NodeC() {
     this->data = 0;
     this->next = nullptr;
 }
 
 template <typename T>
-Node<T>::Node(T element)
+NodeC<T>::NodeC(T element)
 {
     this->data = element;
     this->next = nullptr;
@@ -66,7 +66,7 @@ template<typename T>
 int circular_linked_list<T>::linkedListSize()
 {
     int len = 0;
-    Node<T> *p = Head;
+    NodeC<T> *p = Head;
     if (p != nullptr) {
         do
         {
@@ -96,7 +96,7 @@ void circular_linked_list<T>::print()
     if (isEmpty()) {
         cout << "List is empty!\n";
     } else {
-        Node<T> *p = this->Head;
+        NodeC<T> *p = this->Head;
         do
         {
             cout << p->data << ' ';
@@ -109,8 +109,8 @@ void circular_linked_list<T>::print()
 template<typename T>
 void circular_linked_list<T>::insertAtHead(T element)
 {
-    Node<T> *t, *p;
-    t = new Node<T>(element);
+    NodeC<T> *t, *p;
+    t = new NodeC<T>(element);
     if (isEmpty()) {
         Head = t;
         Head->next = Head;
@@ -126,8 +126,8 @@ void circular_linked_list<T>::insertAtHead(T element)
 template<typename T>
 void circular_linked_list<T>::insertAtTail(T element)
 {
-    Node<T> *t, *p;
-    t = new Node<T>(element);
+    NodeC<T> *t, *p;
+    t = new NodeC<T>(element);
     if (isEmpty()) {
         Head = t;
         Head->next = Head;
@@ -147,8 +147,8 @@ void circular_linked_list<T>::insertAt(T element, int index)
         cout << "Invalid Index!\n";
         return;
     }
-    Node<T> *t, *p;
-    t = new Node<T>(element);
+    NodeC<T> *t, *p;
+    t = new NodeC<T>(element);
     if (isEmpty()) {
         Head = t;
         Head->next = Head;
@@ -173,7 +173,7 @@ void circular_linked_list<T>::removeAtHead()
     if (isEmpty()) {
         cout << "List is already empty!\n";
     } else {
-        Node<T> *p = Head;
+        NodeC<T> *p = Head;
         while (p->next != Head) p = p->next;
         p->next = Head->next;
         delete Head;
@@ -187,11 +187,11 @@ void circular_linked_list<T>::removeAtTail()
     if (isEmpty()) {
         cout << "List is already empty!\n";
     } else {
-        Node<T> *p = Head;
+        NodeC<T> *p = Head;
         int size = linkedListSize();
         for (int i = 0; i < size-2; i++)
             p = p->next;
-        Node<T> *t = p->next;
+        NodeC<T> *t = p->next;
         p->next = Head;
         delete t;
     }
@@ -213,10 +213,10 @@ void circular_linked_list<T>::removeAt(int index)
         } else if (index == size) {
             removeAtTail();
         } else {
-            Node<T> *p = Head;
+            NodeC<T> *p = Head;
             for (int i = 0; i < index-2; i++)
                 p = p->next;
-            Node<T> *t = p->next;
+            NodeC<T> *t = p->next;
             p->next = t->next;
             delete t;
         }
@@ -231,7 +231,7 @@ T circular_linked_list<T>::retrieveAt(int index)
         cout << "Invalid Index!\n";
         return 0;
     } else {
-        Node<T> *p = Head;
+        NodeC<T> *p = Head;
         for (int i = 0; i < index; i++)
             p = p->next;
         return p->data;
@@ -249,7 +249,7 @@ void circular_linked_list<T>::replaceAt(T newElement, int index)
     if (isEmpty()) {
         cout << "List is already empty!\n";
     } else {
-        Node<T> *p = Head;
+        NodeC<T> *p = Head;
         for (int i = 0; i < index-1; i++) 
             p = p->next;
         p->data = newElement;
@@ -263,7 +263,7 @@ bool circular_linked_list<T>::isExist(T element)
         cout << "List is already empty!\n";
         return false;
     } else {
-        Node<T> *p = Head;
+        NodeC<T> *p = Head;
         do
         {
             if (p->data == element)
@@ -286,7 +286,7 @@ bool circular_linked_list<T>::isItemAtEqual(T element, int index)
         cout << "List is already empty!\n";
         return false;
     }
-    Node<T> *p = Head;
+    NodeC<T> *p = Head;
     for (int i = 0; i < index-1; i++)
         p = p->next;
 
@@ -311,32 +311,32 @@ void circular_linked_list<T>::swap(int firstItemIdx, int secondItemIdx)
     if (firstItemIdx == secondItemIdx) {
         return;
     }
-    Node<T> *t1, *t2;
+    NodeC<T> *t1, *t2;
     t1 = Head;
     t2 = Head;
     for (int i = 0; i < firstItemIdx-1; i++)
         t1 = t1->next;
 
-    Node<T> *b1 = t1;
+    NodeC<T> *b1 = t1;
     if (firstItemIdx == 0) {
         while (b1->next != Head)
             b1 = b1->next;
     } else {
         t1 = t1->next;
     }
-    Node<T> *f1 = t1->next;
+    NodeC<T> *f1 = t1->next;
     
     for (int i = 0; i < secondItemIdx-1; i++)
         t2 = t2->next;
 
-    Node<T> *b2 = t2;
+    NodeC<T> *b2 = t2;
     if (secondItemIdx == 0) {
         while (b2->next != Head)
             b2 = b2->next;
     } else {
         t2 = t2->next;
     }
-    Node<T> *f2 = t2->next;
+    NodeC<T> *f2 = t2->next;
 
     b1->next = t2;
     if (t2 != f1) {
@@ -360,39 +360,39 @@ void circular_linked_list<T>::swap(int firstItemIdx, int secondItemIdx)
 
 using namespace std;
 
-int main() {
-
-    circular_linked_list<int> list;
-    list.insertAtHead(1);
-    list.insertAtHead(2);
-    
-    list.insertAtTail(3);
-    list.insertAtTail(4);
-
-    list.print();
-
-    // list.removeAtHead();
-    // list.print();
-    // list.removeAtTail();
-    // list.print();
-    // list.removeAt(2);
-    // list.print();
-
-    list.insertAt(7, 0);
-    list.print();
-    list.insertAt(6, 5);
-    list.print();
-    list.insertAt(9, 2);
-    list.print();
-
-    cout << list.isItemAtEqual(1, 6) << endl;
-
-    list.swap(1, 3);
-    list.print();
-
-    cout << "clear" << endl;
-    list.clear();
-    list.print();
-
-    return 0;
-}
+//int main() {
+//
+//    circular_linked_list<int> list;
+//    list.insertAtHead(1);
+//    list.insertAtHead(2);
+//
+//    list.insertAtTail(3);
+//    list.insertAtTail(4);
+//
+//    list.print();
+//
+//    // list.removeAtHead();
+//    // list.print();
+//    // list.removeAtTail();
+//    // list.print();
+//    // list.removeAt(2);
+//    // list.print();
+//
+//    list.insertAt(7, 0);
+//    list.print();
+//    list.insertAt(6, 5);
+//    list.print();
+//    list.insertAt(9, 2);
+//    list.print();
+//
+//    cout << list.isItemAtEqual(1, 6) << endl;
+//
+//    list.swap(1, 3);
+//    list.print();
+//
+//    cout << "clear" << endl;
+//    list.clear();
+//    list.print();
+//
+//    return 0;
+//}

@@ -6,5 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 add_executable(DSA_Assignment main.cpp
         Stack/Stack.cpp
         ArrayBasedStack/ArrayBasedStack.cpp
-        SingleLinkedLIst.h
-        SingleLinkedLIst.cpp)
+        SingleLinkedList/SingleLinkedLIst.h
+        SingleLinkedList/SingleLinkedLIst.cpp
+        "circular linked List/circular_linked_list.h"
+        "circular linked List/circular_linked_list.cpp")

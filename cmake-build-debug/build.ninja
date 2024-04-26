@@ -67,11 +67,17 @@ build CMakeFiles/DSA_Assignment.dir/ArrayBasedStack/ArrayBasedStack.cpp.obj: CXX
   OBJECT_DIR = CMakeFiles\DSA_Assignment.dir
   OBJECT_FILE_DIR = CMakeFiles\DSA_Assignment.dir\ArrayBasedStack
 
-build CMakeFiles/DSA_Assignment.dir/SingleLinkedLIst.cpp.obj: CXX_COMPILER__DSA_Assignment_unscanned_Debug C$:/Users/001/Documents/GitHub/DSA-Assignment/SingleLinkedLIst.cpp || cmake_object_order_depends_target_DSA_Assignment
-  DEP_FILE = CMakeFiles\DSA_Assignment.dir\SingleLinkedLIst.cpp.obj.d
+build CMakeFiles/DSA_Assignment.dir/SingleLinkedList/SingleLinkedLIst.cpp.obj: CXX_COMPILER__DSA_Assignment_unscanned_Debug C$:/Users/001/Documents/GitHub/DSA-Assignment/SingleLinkedList/SingleLinkedLIst.cpp || cmake_object_order_depends_target_DSA_Assignment
+  DEP_FILE = CMakeFiles\DSA_Assignment.dir\SingleLinkedList\SingleLinkedLIst.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\DSA_Assignment.dir
-  OBJECT_FILE_DIR = CMakeFiles\DSA_Assignment.dir
+  OBJECT_FILE_DIR = CMakeFiles\DSA_Assignment.dir\SingleLinkedList
+
+build CMakeFiles/DSA_Assignment.dir/circular_linked_List/circular_linked_list.cpp.obj: CXX_COMPILER__DSA_Assignment_unscanned_Debug C$:/Users/001/Documents/GitHub/DSA-Assignment/circular$ linked$ List/circular_linked_list.cpp || cmake_object_order_depends_target_DSA_Assignment
+  DEP_FILE = CMakeFiles\DSA_Assignment.dir\circular_linked_List\circular_linked_list.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\DSA_Assignment.dir
+  OBJECT_FILE_DIR = CMakeFiles\DSA_Assignment.dir\circular_linked_List
 
 
 # =============================================================================
@@ -81,7 +87,7 @@ build CMakeFiles/DSA_Assignment.dir/SingleLinkedLIst.cpp.obj: CXX_COMPILER__DSA_
 #############################################
 # Link the executable DSA_Assignment.exe
 
-build DSA_Assignment.exe: CXX_EXECUTABLE_LINKER__DSA_Assignment_Debug CMakeFiles/DSA_Assignment.dir/main.cpp.obj CMakeFiles/DSA_Assignment.dir/Stack/Stack.cpp.obj CMakeFiles/DSA_Assignment.dir/ArrayBasedStack/ArrayBasedStack.cpp.obj CMakeFiles/DSA_Assignment.dir/SingleLinkedLIst.cpp.obj
+build DSA_Assignment.exe: CXX_EXECUTABLE_LINKER__DSA_Assignment_Debug CMakeFiles/DSA_Assignment.dir/main.cpp.obj CMakeFiles/DSA_Assignment.dir/Stack/Stack.cpp.obj CMakeFiles/DSA_Assignment.dir/ArrayBasedStack/ArrayBasedStack.cpp.obj CMakeFiles/DSA_Assignment.dir/SingleLinkedList/SingleLinkedLIst.cpp.obj CMakeFiles/DSA_Assignment.dir/circular_linked_List/circular_linked_list.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\DSA_Assignment.dir
