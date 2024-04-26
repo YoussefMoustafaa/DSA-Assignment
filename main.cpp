@@ -12,7 +12,7 @@
 using namespace std;
 
 void outGPA(Student studentList[],int size){
-    ofstream outFileGPA("./Output files/student.txt");
+    ofstream outFileGPA("C:\\Users\\001\\Documents\\GitHub\\DSA-Assignment\\Output files\\outFileGPA.txt");
     outFileGPA << "Sorted By GPA\n";
     outFileGPA<<"\n\n";
     Student temp[size] ;
@@ -20,13 +20,13 @@ void outGPA(Student studentList[],int size){
         temp[i]=studentList[i];
     }
     int comparison;
-    auto startTime = chrono::steady_clock::now();
+    auto Start = chrono::steady_clock::now();
     comparison= insertionSortForStudents(temp,size,0);
-    auto endTime = chrono::steady_clock::now();
-    auto duration = chrono::duration_cast<std::chrono::nanoseconds>(endTime - startTime);
+    auto End = chrono::steady_clock::now();
+    auto timeTaken = chrono::duration_cast<std::chrono::nanoseconds>(End - Start);
     outFileGPA << "Algorithm: Insertion Sort\n";
     outFileGPA << "Number of comparisons: " << comparison << " comparisons\n";
-    outFileGPA << "Running Time:" << duration.count() << " nanoseconds" << "\n";
+    outFileGPA << "Running Time:" << timeTaken.count() << " nanoseconds" << "\n";
     outFileGPA << "Sorted List:\n";
     for(int i =0;i<size;i++){
         outFileGPA<<temp[i];
@@ -37,13 +37,13 @@ void outGPA(Student studentList[],int size){
     for(int i =0;i<size;i++){
         temp[i]=studentList[i];
     }
-    startTime = chrono::steady_clock::now();
+    Start = chrono::steady_clock::now();
     comparison= quickSort(temp,0,size-1, compareByGPA);
-    endTime = chrono::steady_clock::now();
-    duration = chrono::duration_cast<std::chrono::nanoseconds>(endTime - startTime);
+    End = chrono::steady_clock::now();
+    timeTaken = chrono::duration_cast<std::chrono::nanoseconds>(End - Start);
     outFileGPA << "Algorithm: Quick Sort\n";
     outFileGPA << "Number of comparisons: " << comparison << " comparisons\n";
-    outFileGPA << "Running Time:" << duration.count() << " nanoseconds" << "\n";
+    outFileGPA << "Running Time:" << timeTaken.count() << " nanoseconds" << "\n";
     outFileGPA << "Sorted List:\n";
     for(int i =0;i<size;i++){
         outFileGPA<<temp[i];
@@ -54,13 +54,13 @@ void outGPA(Student studentList[],int size){
     for(int i =0;i<size;i++){
         temp[i]=studentList[i];
     }
-    startTime = chrono::steady_clock::now();
+    Start = chrono::steady_clock::now();
     comparison= shellSortForStudent(temp, size,false);
-    endTime = chrono::steady_clock::now();
-    duration = chrono::duration_cast<std::chrono::nanoseconds>(endTime - startTime);
+    End = chrono::steady_clock::now();
+    timeTaken = chrono::duration_cast<std::chrono::nanoseconds>(End - Start);
     outFileGPA << "Algorithm: Shell Sort\n";
     outFileGPA << "Number of comparisons: " << comparison << " comparisons\n";
-    outFileGPA << "Running Time:" << duration.count() << " nanoseconds" << "\n";
+    outFileGPA << "Running Time:" << timeTaken.count() << " nanoseconds" << "\n";
     outFileGPA << "Sorted List:\n";
     for(int i =0;i<size;i++){
         outFileGPA<<temp[i];
@@ -71,13 +71,13 @@ void outGPA(Student studentList[],int size){
     for(int i =0;i<size;i++){
         temp[i]=studentList[i];
     }
-    startTime = chrono::steady_clock::now();
+    Start = chrono::steady_clock::now();
     comparison= mergeSortForStudents(temp, size, false);
-    endTime = chrono::steady_clock::now();
-    duration = chrono::duration_cast<std::chrono::nanoseconds>(endTime - startTime);
+    End = chrono::steady_clock::now();
+    timeTaken = chrono::duration_cast<std::chrono::nanoseconds>(End - Start);
     outFileGPA << "Algorithm: Merge Sort\n";
     outFileGPA << "Number of comparisons: " << comparison << " comparisons\n";
-    outFileGPA << "Running Time:" << duration.count() << " nanoseconds" << "\n";
+    outFileGPA << "Running Time:" << timeTaken.count() << " nanoseconds" << "\n";
     outFileGPA << "Sorted List:\n";
     for(int i =0;i<size;i++){
         outFileGPA<<temp[i];
@@ -88,13 +88,13 @@ void outGPA(Student studentList[],int size){
     for(int i =0;i<size;i++){
         temp[i]=studentList[i];
     }
-    startTime = chrono::steady_clock::now();
+    Start = chrono::steady_clock::now();
     comparison= selectionSortForstudent(temp,size,false);
-    endTime = chrono::steady_clock::now();
-    duration = chrono::duration_cast<std::chrono::nanoseconds>(endTime - startTime);
+    End = chrono::steady_clock::now();
+    timeTaken = chrono::duration_cast<std::chrono::nanoseconds>(End - Start);
     outFileGPA << "Algorithm: Selection Sort\n";
     outFileGPA << "Number of comparisons: " << comparison << " comparisons\n";
-    outFileGPA << "Running Time:" << duration.count() << " nanoseconds" << "\n";
+    outFileGPA << "Running Time:" << timeTaken.count() << " nanoseconds" << "\n";
     outFileGPA << "Sorted List:\n";
     for(int i =0;i<size;i++){
         outFileGPA<<temp[i];
@@ -105,13 +105,13 @@ void outGPA(Student studentList[],int size){
     for(int i =0;i<size;i++){
         temp[i]=studentList[i];
     }
-    startTime = chrono::steady_clock::now();
+    Start = chrono::steady_clock::now();
     comparison= bubbleSortForStudent(temp,size,false);
-    endTime = chrono::steady_clock::now();
-    duration = chrono::duration_cast<std::chrono::nanoseconds>(endTime - startTime);
+    End = chrono::steady_clock::now();
+    timeTaken = chrono::duration_cast<std::chrono::nanoseconds>(End - Start);
     outFileGPA << "Algorithm: Bubble Sort\n";
     outFileGPA << "Number of comparisons: " << comparison << " comparisons\n";
-    outFileGPA << "Running Time:" << duration.count() << " nanoseconds" << "\n";
+    outFileGPA << "Running Time:" << timeTaken.count() << " nanoseconds" << "\n";
     outFileGPA << "Sorted List:\n";
     for(int i =0;i<size;i++){
         outFileGPA<<temp[i];
@@ -122,16 +122,16 @@ void outGPA(Student studentList[],int size){
 void outName(Student studentList[],int size){
     int comparison;
     Student temp[size] ;
-    ofstream outFileName("./Output files/outFileName.txt");
+    ofstream outFileName("C:\\Users\\001\\Documents\\GitHub\\DSA-Assignment\\Output files\\outFileName.txt");
     outFileName << "Sorted By Name\n";
     outFileName<<"\n\n";
-    auto startTime = chrono::steady_clock::now();
+    auto Start = chrono::steady_clock::now();
     comparison= insertionSortForStudents(temp,size,1);
-    auto endTime = chrono::steady_clock::now();
-    auto duration = chrono::duration_cast<std::chrono::nanoseconds>(endTime - startTime);
+    auto End = chrono::steady_clock::now();
+    auto timeTaken = chrono::duration_cast<std::chrono::nanoseconds>(End - Start);
     outFileName << "Algorithm: Insertion Sort\n";
     outFileName << "Number of comparisons: " << comparison << " comparisons\n";
-    outFileName << "Running Time:" << duration.count() << " nanoseconds" << "\n";
+    outFileName << "Running Time:" << timeTaken.count() << " nanoseconds" << "\n";
     outFileName << "Sorted List:\n";
     for(int i =0;i<size;i++){
         outFileName<<temp[i];
@@ -142,13 +142,13 @@ void outName(Student studentList[],int size){
     for(int i =0;i<size;i++){
         temp[i]=studentList[i];
     }
-    startTime = chrono::steady_clock::now();
+    Start = chrono::steady_clock::now();
     comparison= quickSort(temp,0,size-1, compareByName);
-    endTime = chrono::steady_clock::now();
-    duration = chrono::duration_cast<std::chrono::nanoseconds>(endTime - startTime);
+    End = chrono::steady_clock::now();
+    timeTaken = chrono::duration_cast<std::chrono::nanoseconds>(End - Start);
     outFileName << "Algorithm: Quick Sort\n";
     outFileName << "Number of comparisons: " << comparison << " comparisons\n";
-    outFileName << "Running Time:" << duration.count() << " nanoseconds" << "\n";
+    outFileName << "Running Time:" << timeTaken.count() << " nanoseconds" << "\n";
     outFileName << "Sorted List:\n";
     for(int i =0;i<size;i++){
         outFileName<<temp[i];
@@ -159,13 +159,13 @@ void outName(Student studentList[],int size){
     for(int i =0;i<size;i++){
         temp[i]=studentList[i];
     }
-    startTime = chrono::steady_clock::now();
+    Start = chrono::steady_clock::now();
     comparison= shellSortForStudent(temp, size,1);
-    endTime = chrono::steady_clock::now();
-    duration = chrono::duration_cast<std::chrono::nanoseconds>(endTime - startTime);
+    End = chrono::steady_clock::now();
+    timeTaken = chrono::duration_cast<std::chrono::nanoseconds>(End - Start);
     outFileName << "Algorithm: Shell Sort\n";
     outFileName << "Number of comparisons: " << comparison << " comparisons\n";
-    outFileName << "Running Time:" << duration.count() << " nanoseconds" << "\n";
+    outFileName << "Running Time:" << timeTaken.count() << " nanoseconds" << "\n";
     outFileName << "Sorted List:\n";
     for(int i =0;i<size;i++){
         outFileName<<temp[i];
@@ -176,13 +176,13 @@ void outName(Student studentList[],int size){
     for(int i =0;i<size;i++){
         temp[i]=studentList[i];
     }
-    startTime = chrono::steady_clock::now();
+    Start = chrono::steady_clock::now();
     comparison= mergeSortForStudents(temp,size,1);
-    endTime = chrono::steady_clock::now();
-    duration = chrono::duration_cast<std::chrono::nanoseconds>(endTime - startTime);
+    End = chrono::steady_clock::now();
+    timeTaken = chrono::duration_cast<std::chrono::nanoseconds>(End - Start);
     outFileName << "Algorithm: Merge Sort\n";
     outFileName << "Number of comparisons: " << comparison << " comparisons\n";
-    outFileName << "Running Time:" << duration.count() << " nanoseconds" << "\n";
+    outFileName << "Running Time:" << timeTaken.count() << " nanoseconds" << "\n";
     outFileName << "Sorted List:\n";
     for(int i =0;i<size;i++){
         outFileName<<temp[i];
@@ -193,13 +193,13 @@ void outName(Student studentList[],int size){
     for(int i =0;i<size;i++){
         temp[i]=studentList[i];
     }
-    startTime = chrono::steady_clock::now();
+    Start = chrono::steady_clock::now();
     comparison= selectionSortForstudent(temp,size,1);
-    endTime = chrono::steady_clock::now();
-    duration = chrono::duration_cast<std::chrono::nanoseconds>(endTime - startTime);
+    End = chrono::steady_clock::now();
+    timeTaken = chrono::duration_cast<std::chrono::nanoseconds>(End - Start);
     outFileName << "Algorithm: Selection Sort\n";
     outFileName << "Number of comparisons: " << comparison << " comparisons\n";
-    outFileName << "Running Time:" << duration.count() << " nanoseconds" << "\n";
+    outFileName << "Running Time:" << timeTaken.count() << " nanoseconds" << "\n";
     outFileName << "Sorted List:\n";
     for(int i =0;i<size;i++){
         outFileName<<temp[i];
@@ -210,13 +210,13 @@ void outName(Student studentList[],int size){
     for(int i =0;i<size;i++){
         temp[i]=studentList[i];
     }
-    startTime = chrono::steady_clock::now();
+    Start = chrono::steady_clock::now();
     comparison= bubbleSortForStudent(temp,size,1);
-    endTime = chrono::steady_clock::now();
-    duration = chrono::duration_cast<std::chrono::nanoseconds>(endTime - startTime);
+    End = chrono::steady_clock::now();
+    timeTaken = chrono::duration_cast<std::chrono::nanoseconds>(End - Start);
     outFileName << "Algorithm: Bubble Sort\n";
     outFileName << "Number of comparisons: " << comparison << " comparisons\n";
-    outFileName << "Running Time:" << duration.count() << " nanoseconds" << "\n";
+    outFileName << "Running Time:" << timeTaken.count() << " nanoseconds" << "\n";
     outFileName << "Sorted List:\n";
     for(int i =0;i<size;i++){
         outFileName<<temp[i];
