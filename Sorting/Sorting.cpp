@@ -41,6 +41,47 @@ void insertionSort(T arr[], int n)
         arr[j] = temp;
     }
 }
+//Selection Sort
+template <class T>
+void selectionSort(T arr[], int n, int& comparisons)
+{
+    comparisons = 0; 
+    for (int i = 0; i < n - 1; i++)
+    {
+        int minIndex = i;
+        for (int j = i + 1; j < n; j++)
+        {
+            comparisons++; 
+            if (arr[j] < arr[minIndex])
+            {
+                minIndex = j;
+            }
+        }
+        if (minIndex != i)
+        {
+            std::swap(arr[i], arr[minIndex]);
+        }
+    }
+}
+
+//bubble sort
+template <class T>
+void bubbleSort(T arr[], int n, int& comparisons)
+{
+    comparisons = 0; 
+    for (int i = 0; i < n - 1; i++)
+    {
+        for (int j = 0; j < n - i - 1; j++)
+        {
+            comparisons++; 
+            if (arr[j] > arr[j + 1])
+            {
+                std::swap(arr[j], arr[j + 1]);
+            }
+        }
+    }
+}
+
 // Quick sort
 template<typename T>
 int partiton(vector<T>& Array, int low, int high){

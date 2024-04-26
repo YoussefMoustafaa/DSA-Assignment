@@ -2,6 +2,7 @@
 #include <bits/stdc++.h>
 #include "./StudentClass/Student.cpp"
 #include "./Sorting/Sorting.cpp"
+#include "./DoubleLinkedList/DoubleLinkedList.cpp"
 #include "Queue/Queue.cpp"
 #include <vector>
 using namespace std;
